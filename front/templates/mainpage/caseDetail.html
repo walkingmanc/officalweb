@@ -1,0 +1,48 @@
+
+{% extends "./base.html" %} 
+{% load static %}
+
+{% block mainContent %}
+
+<div id="bd">
+    <!--<div class="cur">
+        <div class="wp">您的当前位置：<a href="case.php?n=4">网思案例</a> > <a href="">森林公园网站</a></div>
+    </div>-->
+    <div class="case-article">
+
+        <div class="case-article-bg"  style="margin-bottom:23%;">
+            <div class="wp pr">
+                <a href="case_info.php?id=124&n=4" class="article-prev"></a>
+                <a href="case_info.php?id=126&n=4" class="article-next"></a>
+                <div class="case-logo"><img src="{% static 'images/'%}{{caseDetail.caseLogo}}"  alt="{% static 'images/'%}{{caseDetail.caseLogo}}"></div>
+                <h1>{{ caseDetail.tips}}</h1>
+                <p class="tc"><span>{{ caseDetail.intro}}</span></p>
+                <div class="btn"><a href="" target="_blank">访问网址</a><a href="" target="_blank">了解报价</a></div>
+              <!-- 电脑屏幕内显示图片 大小：568*322 -->
+                <div class="computer-bg"><img src="{% static 'images/'%}{{caseDetail.previewPic}}" alt="森林公园网站"></div>
+                <!-- <p class="tc"><img src="images/img15.jpg" style="margin-bottom:-135px;" alt=""></p> -->
+            </div>
+        </div>
+
+        <div class="case-img2">
+            <!--网站效果图 图片尺寸：998×741-->
+
+         {% if caseshowDetailMulti %}       
+          {% for casePic in caseshowDetailMulti %}
+            <p>
+                <img src="{% static 'images/'%}{{casePic.detailPicUrl}}" alt="{{casePic.detailPicTips}}" />
+            </p>            
+        {% endfor %}     
+       {% else %}
+               <p>No DetailPics are available.</p>
+        {% endif %}
+
+
+            			</div>
+        <div class="case-back"><a href="case-list-{{ curCata }}-{{ curPage }}">返回案例列表</a></div>
+    </div>
+</div>
+<!-- end #bd -->
+
+
+{% endblock %}

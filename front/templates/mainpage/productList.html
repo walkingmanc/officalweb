@@ -1,0 +1,63 @@
+{% extends "./base.html" %} 
+{% load static %}
+{% load paginatortag %}
+
+{% block mainContent %}
+
+<div id="bd">
+<div id="ban-in" style="background-image:url({% static 'images/14415956107965.jpg' %}/)">
+    <div class="ban-bg"></div>
+</div>
+<div class="wp">
+<div class="tit-i">
+    <h3>思恩产品</h3>
+    <h5>WEBTHINK <span>PRODUCTS</span></h5>
+</div>
+
+{% if product_list_page %}
+
+<ul class="ul-list">
+ {% for product in product_list_page %}
+    <li>
+        <div class="pad">
+            <div class="pic"><a href="product-info-{{ product.id}}"><img src="{% static 'images/' %}{{product.listPic }}" alt="{{ product.keyWords}}"></a></div>
+            <div class="bor">
+                <div class="txt">
+                    <div class="title">                        
+                        <h3><a href="product-info-{{ product.id}}">{{ product.title}}</a></h3>
+                    </div>
+                    <a href="product-info-{{ product.id}}"><p>{{ product.desc}}</p></a>
+                </div>
+                <div class="more"><a href="product-info-{{ product.id}}" class="r">查看更多 ></a></div>
+            </div>
+        </div>
+    </li>
+ {% endfor %}       
+   {% else %}
+               <p>No product are available.</p>
+            {% endif %}
+
+</ul>
+<div class="c"></div>
+
+<div class="pages">
+
+      {% if product_list_page.has_previous %}
+             <a href='product-list-{{product_list_page.previous_page_number}}' class='a-prev'><</a>
+        {% endif %}
+ 
+        {% for product_number in product_list_page.paginator.page_range %}
+        
+        {% page_tag  'product' product_list_page.number product_number %} 
+
+        {% endfor %}
+ 
+        {% if product_list_page.has_next %}        
+            <a class='a-next' href="product-list-{{product_list_page.next_page_number}}">></a>
+        {% endif %}
+</div>
+
+</div>
+
+
+{% endblock %}

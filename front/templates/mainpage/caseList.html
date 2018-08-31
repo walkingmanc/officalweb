@@ -1,0 +1,88 @@
+
+{% extends "./base.html" %} 
+{% load static %}
+{% load paginatortag %}
+
+{% block mainContent %}
+
+<div id="bd">
+<div id="ban-in" style="background-image:url({% static 'images/14415956337556.jpg' %}/)">
+    <div class="ban-bg"></div>
+</div>
+<div class="wp">
+<div class="tit-i">
+    <h3>思恩案例</h3>
+    <h5><span>case</span> OF WEBTHINK</h5>
+</div>
+<div class="sub-nav" id="nav_cata">
+      {% if caseCatList %}
+
+    <ul>
+        <li ><a href="case-list-0-1">全部</a></li>
+
+        {% for caseCat in caseCatList %}
+
+        <li><a  href="case-list-{{ caseCat.id}}-1">{{ caseCat.name}}</a></li>
+       
+         {% endfor %}
+
+    </ul>
+
+ {% else %}
+               <p>No caseCatas are available.</p>
+ {% endif %}
+
+</div>
+
+<div class="c"></div>
+  {% if case_list_page %}
+<ul class="ul-case">
+  {% for case in case_list_page %}
+    <li>
+        <div class="block">
+            <div class="pic"><img src="{% static 'images/' %}{{case.picUrl }}" alt=""></div>
+            <div class="txt">
+                <a href="case-info-{{case.id }}-{{curCata}}-{{curPage}}" style="width:100%;height:100%;display:block;">
+                    <b></b>
+                    <div class="pad">
+                        <h5>{{ case.caseCat.name}}</h5>
+                        <em></em>
+                        <h3>{{ case.tips}}</h3>
+                        <span class="more">案例详情</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+  {% else %}
+       <p>No cases are available.</p>
+  {% endif %}
+
+<div class="c"></div>
+
+<div class="pages">
+
+      {% if case_list_page.has_previous %}
+             <a href='case-list-{{curCata}}-{{case_list_page.previous_page_number}}' class='a-prev'><</a>
+        {% endif %}
+ 
+        {% for case_number in case_list_page.paginator.page_range %}
+        
+        {% page_tag 'case' case_list_page.number case_number curCata %}
+
+        {% endfor %}
+ 
+        {% if case_list_page.has_next %}        
+            <a class='a-next' href="case-list-{{curCata}}-{{case_list_page.next_page_number}}">></a>
+        {% endif %}
+
+
+    
+</div>
+
+</div>
+</div>
+
+{% endblock %}

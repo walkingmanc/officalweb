@@ -1,0 +1,54 @@
+
+
+{% extends "./base.html" %} 
+{% load static %}
+
+{% block mainContent %}
+
+
+
+<div id="bd">
+    <div id="ban-in" style="background-image:url({% static 'images/14415953225349.jpg' %}/)">
+        <div class="ban-bg"></div>
+    </div>
+    <div class="row4 fix">
+        <div class="wp">
+            <div class="tit-i">
+                <h3>联系我们</h3>
+                <h5><span>contact</span> webthink</h5>
+            </div>
+            <div class="contact-l">
+                <ul class="ul-contact">
+                    <li class="li1">北京市朝阳区建国路88号SOHO现代城6#3208</li>
+                    <li class="li2"><a href="tel:010-51265006">010-51265006 (咨询) / <a href="tel:010-52459737">52459737 (售后)<br /><a href="tel:400-008-0408">400-008-0408 (咨询)</a><br /><a href="tel:13581789985">13581789985 (咨询)</a></li>
+                    <li class="li3"><a href="mailto:sales@webthink.com.cn">sales@webthink.com.cn</a></li>
+                </ul>
+            </div>
+            <div class="contact-r">
+                 <form  class="contact-form"  id="guestInfoForm" method="post" >
+                <div >
+                    <input type="text" class="inp l" name="name" id="name" placeholder="您的姓名" minlength="2"  >
+                    <input type="text" class="inp r" name="tel" id="tel" placeholder="您的联系方式" >
+                </div>
+                <textarea cols="30" rows="10" name="txt" id="txt" required ></textarea>
+                <span id="guestCollectOutput" style="color:#F00" > </span>
+                <input type="button" value="提交您的需求" class="sub" id="guestCollectSub">
+            </form>
+            </div>
+        </div>
+    </div>
+    <div class="map">
+        <div class="map-s">
+            <a href="javascript:void(0);" class="btn"><em></em>点击展开地图</a>
+        </div>
+        <div class="map-pop map-pop-big">
+            <a href="javascript:void(0);" class="btn-down"></a>
+            <div class="map-bg1"></div>
+            <div class="map-bg2"></div>
+            <div id="map" class="map-c" style="width:100%;height:100%;"></div>
+        </div>
+    </div>
+</div>
+<!-- end #bd -->
+
+{% endblock %}

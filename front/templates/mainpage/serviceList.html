@@ -1,0 +1,49 @@
+{% extends "./base.html" %} 
+{% load static %}
+
+{% block mainContent %}
+
+<div id="bd">
+<div id="ban-in" style="background-image:url({% static 'images/14415956565984.jpg' %}/)">
+    <div class="ban-bg"></div>
+</div>
+<!-- end #banner -->
+<div class="row1 fix">
+    <div class="wp">
+        <div class="tit-i">
+            <h3>思恩服务</h3>
+            <h5>WEBTHINK <span>SERVICE</span></h5>
+        </div>
+
+           {% if service_list %}
+        <ul class="ul-icon-i">
+             {% for service in service_list %}
+            <li class="li{{forloop.counter}}">
+                <div class="pad">
+                    <a href="service-info-{{ service.id}}">
+                        <span></span>
+                        <h3>{{ service.title}}</h3>
+                        <em></em>
+                        <p>{{ service.desc}}</p>
+                        <div class="pic">
+                            <img src="{% static 'images/' %}{{service.normalPic }}" alt="">
+                            <img src="{% static 'images/' %}{{service.hiLightPic }}" alt="" class="pic-icon">
+                        </div>
+                    </a>
+                </div>
+            </li>
+          {% endfor %}            
+        </ul>
+         {% else %}
+               <p>No service are available.</p>
+            {% endif %}
+    </div>
+</div>
+
+
+
+
+
+</div>
+
+{% endblock %}

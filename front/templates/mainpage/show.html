@@ -1,0 +1,240 @@
+{% extends "./base.html" %} 
+{% load static %}
+
+{% block mainContent %}
+
+<div id="bd">
+<div id="banner">
+    <div class="banner-bg"></div>
+    <div class="flexslider">
+        <ul class="slides">
+            <li class="s1">
+                <img src="{% static 'images/banner1.jpg'%}">
+                <div class="ban-txt">
+                    <h5 data-animate="fadeInDown" class="animated">innovating for you</h5>
+                    <h2 data-animate="fadeInRight" class="animated">用整合的思想做互动</h2>
+                    <h3 data-animate="fadeInUp" class="animated">不只是建站，更提供有价值的思路和整体服务</h3>
+                </div>
+            </li>
+            <li class="s2">
+                <img src="{% static 'images/banner2.jpg'%}">
+                <div class="ban-txt">
+                    <h2 data-animate="fadeInRight" class="animated">9年资深网站建设经验</h2>
+                    <h3 data-animate="fadeInDown" class="animated">WEBSITE DESIGN</h3>
+                    <h4 data-animate="fadeInUp" class="animated">我们专注于品质化高端网站构建，企业品牌在网站中的整体树立，网络互动的体验，以及在手机等移动端的优质呈现。</h4>
+                    <h6 data-animate="fadeInUp" class="animated">www.sien.com.cn</h6>
+                </div>
+            </li>
+            <li class="s3">
+                <img src="{% static 'images/banner3.jpg'%}">
+                <div class="ban-txt">
+                    <h2 data-animate="fadeInDown" class="animated">高端定制 品牌设计</h2>
+                    <h3 data-animate="fadeInRight" class="animated">Corporate website</h3>
+                    <h4 data-animate="fadeInUp" class="animated">思恩致力于为客户提供最具有竞争力的网站，将每个案例都做成经典。</h4>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- end #banner -->
+<div class="row1 fix">
+    <div class="wp">
+        <div class="tit-i">
+            <h3>思恩服务</h3>
+            <h5>WEBTHINK <span>SERVICE</span></h5>
+        </div>
+
+           {% if service_list %}
+        <ul class="ul-icon-i">
+             {% for service in service_list %}
+            <li class="li{{forloop.counter}}">
+                <div class="pad">
+                    <a href="service-info-{{ service.id}}">
+                        <span></span>
+                        <h3>{{ service.title}}</h3>
+                        <em></em>
+                        <p>{{ service.desc}}</p>
+                        <div class="pic">
+                            <img src="{% static 'images/' %}{{service.normalPic }}" alt="">
+                            <img src="{% static 'images/' %}{{service.hiLightPic }}" alt="" class="pic-icon">
+                        </div>
+                    </a>
+                </div>
+            </li>
+          {% endfor %}            
+        </ul>
+         {% else %}
+               <p>No service are available.</p>
+            {% endif %}
+    </div>
+</div>
+
+
+<div class="row2 fix">
+    <div class="wp">
+        <div class="tit-i">
+            <h3>思恩案例</h3>
+            <h5><span>case</span> of webthink</h5>
+        </div>
+        <div class="case-i">
+
+            <div class="case-i-r" style="width: 100%;">
+
+                {% if case_list %}
+
+                <ul class="ul-case-i">
+
+                 {% for case in case_list %}
+
+                    <li>
+                        <a href="case-info-{{ case.id }}">
+                            <div class="pic"><img src="{% static 'images/' %}{{case.picUrl }}"></div>
+                            <div class="hover">
+                                <b></b>
+                                <div class="txt">
+                                    <img src="{% static 'images/' %}{{ case.iconUrl}}" alt="">
+                                    <h3>{{ case.tips}}</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                  {% endfor %}
+                    
+                </ul>
+
+            {% else %}
+               <p>No polls are available.</p>
+            {% endif %}
+
+
+            </div>
+            <div class="c"></div>
+            <div class="more-i"><a href="case-list-1"></a></div>
+        </div>
+    </div>
+</div>
+<div class="row3 news-bg">
+    <div class="wp">
+        <div class="tit-i tit-i-1">
+            <h3>思恩动态</h3>
+            <h5>webthink <span>news</span></h5>
+        </div>
+        <ul class="ul-news-i">
+            <li>
+                <div class="pad">
+                    <div class="txt">
+                        <span><em>03/01</em>2016</span>
+                        <h3><a href="news_info_5_313.html">给设计师的网页动画设计基础</a></h3>
+                        <p>随着技术的积累，网页中的动画也已经是遍地开花，它时尚，有趣，也人性化。不断涌现的新技术和新工</p>
+                        <a href="news_info_5_313.html" class="more"></a>
+                    </div>
+                    <div class="hover">
+                        <div class="img" style="background: url(images/14568143499060.jpg) 0 0 /100% 100% no-repeat;background: url(images/14568143499060.jpg) 0 0 no-repeat\9;"></div>
+                        <div class="pad">
+                            <h3><a href="news_info_5_313.html">给设计师的网页动画设计基础</a></h3>
+                            <p>随着技术的积累，网页中的动画也已经是遍地开花，它时尚，有趣，也人性化。不断涌现的新技术和新工</p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="pad">
+                    <div class="txt">
+                        <span><em>02/22</em>2016</span>
+                        <h3><a href="news_info_5_310.html">常见的网站交互设计错误</a></h3>
+                        <p>好的交互设计可以区分开有质量的网站和其他普通网站。然而，如果有明显的设计错误，它只会给予你本</p>
+                        <a href="news_info_5_310.html" class="more"></a>
+                    </div>
+                    <div class="hover">
+                        <div class="img" style="background: url(images/14561176714477.png) 0 0 /100% 100% no-repeat;background: url(images/14561176714477.png) 0 0 no-repeat\9;"></div>
+                        <div class="pad">
+                            <h3><a href="news_info_5_310.html">常见的网站交互设计错误</a></h3>
+                            <p>好的交互设计可以区分开有质量的网站和其他普通网站。然而，如果有明显的设计错误，它只会给予你本</p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="pad">
+                    <div class="txt">
+                        <span><em>02/15</em>2016</span>
+                        <h3><a href="news_info_5_305.html">聊聊WEB网站和移动APP的六大交</a></h3>
+                        <p>交互设计中的Web网站和移动App的设计，前者依托于PC的浏览器，后者则是依托于手机/平板电脑。不同的设</p>
+                        <a href="news_info_5_305.html" class="more"></a>
+                    </div>
+                    <div class="hover">
+                        <div class="img" style="background: url(images/14555070718366.jpg) 0 0 /100% 100% no-repeat;background: url(images/14555070718366.jpg) 0 0 no-repeat\9;"></div>
+                        <div class="pad">
+                            <h3><a href="news_info_5_305.html">聊聊WEB网站和移动APP的六大交</a></h3>
+                            <p>交互设计中的Web网站和移动App的设计，前者依托于PC的浏览器，后者则是依托于手机/平板电脑。不同的设</p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="pad">
+                    <div class="txt">
+                        <span><em>01/26</em>2016</span>
+                        <h3><a href="news_info_5_299.html">设计注册/登录界面时注意的常</a></h3>
+                        <p>随着时代的发展，新用户注册、登录到真正加入一个网站的过程一直在变化，从简单的信息填写发展到全</p>
+                        <a href="news_info_5_299.html" class="more"></a>
+                    </div>
+                    <div class="hover">
+                        <div class="img" style="background: url(images/14537972384811.jpg) 0 0 /100% 100% no-repeat;background: url(images/14537972384811.jpg) 0 0 no-repeat\9;"></div>
+                        <div class="pad">
+                            <h3><a href="news_info_5_299.html">设计注册/登录界面时注意的常</a></h3>
+                            <p>随着时代的发展，新用户注册、登录到真正加入一个网站的过程一直在变化，从简单的信息填写发展到全</p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+        <div class="c"></div>
+        <div class="news-more"><a href="news5_0-1">load more</a></div>
+    </div>
+</div>
+
+<div class="row4 fix">
+    <div class="wp">
+        <div class="tit-i">
+            <h3>联系我们</h3>
+            <h5><span>contact</span> webthink</h5>
+        </div>
+        <div class="contact-l">
+            <ul class="ul-contact">
+                <li class="li1">北京市朝阳区建国路88号SOHO现代城6#3208</li>
+                <li class="li2"><a href="tel:010-51265006">010-51265006 (咨询) / <a href="tel:010-52459737">52459737 (售后)<br /><a href="tel:400-008-0408">400-008-0408 (咨询)</a><br /><a href="tel:13581789985">13581789985 (咨询)</li>
+                <li class="li3"><a href="mailto:sales@webthink.com.cn">sales@webthink.com.cn</a></li>
+            </ul>
+        </div>
+        <div class="contact-r">
+
+            <form  class="contact-form"  id="guestInfoForm"  >
+                <div >
+                    <input type="text" class="inp l" name="name" id="name" placeholder="您的姓名" minlength="2"  required>
+                    <input type="text" class="inp r" name="tel" id="tel" placeholder="您的联系方式" required>
+                </div>
+                <textarea cols="30" rows="10" name="txt" id="txt" required ></textarea>
+                <span id="guestCollectOutput" style="color:#F00" > </span>
+                <input type="button" value="提交您的需求" class="sub" id="guestCollectSub">
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<div class="map">
+    <div class="map-s">
+        <a href="javascript:void(0);" class="btn"><em></em>点击展开地图</a>
+    </div>
+    <div class="map-pop">
+        <a href="javascript:void(0);" class="btn-down"></a>
+        <div class="map-bg1"></div>
+        <div class="map-bg2"></div>
+        <div id="map" class="map-i" style="width:100%; height: 100%;">
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
