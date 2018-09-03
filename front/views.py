@@ -85,7 +85,7 @@ def serviceList(request):
     return render(request, 'mainpage/serviceList.html', context)
 
 
-def productList(request, pageIndex):
+def productList(request, cata, pageIndex):
     from .models import ProductShow
     from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
     product_list_all = ProductShow.objects.all()
